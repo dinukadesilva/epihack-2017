@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Register Subscription Spot</title>
+    <title>High Risk Area</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -43,6 +43,7 @@
                   </div>
                 </div>
               </form>
+
               <ul class="nav navbar-nav">
                 <li>
                   <a href="./index.html"><i class="glyphicon glyphicon-home"></i> Home</a>
@@ -70,6 +71,7 @@
                   </ul>
                 </li>
               </ul>
+
               </nav>
             </div>
             <!-- /top nav -->
@@ -84,55 +86,43 @@
                       <div class="panel panel-default">
 
                         <div class="panel-heading">
-                          <h4>Register Subscription Spot</h4>
+                          <h4>High Risk Area</h4>
                         </div>
 
                         <div class="panel-body">
                           <div class='col-sm-6'>
                             <div class="input-group">
-                              <label>Place name</label>
-                              <input type="text" class="form-control" name="place_name" required>
+                              <label>Name:</label>
+                              <span>Nawaloka Hospital, Colombo</span>
                             </div>
 
                             <div class="input-group">
-                              <label>Place type</label>
-
-                              <div>
-                                <select name='place_type' required>
-                                  <option value="" disabled selected>Select</option>
-                                  <option value="school">School</option>
-                                  <option value="construction_site">Construction Site</option>
-                                  <option value="other">Other</option>
-                                </select>
-                              </div>
+                              <label>Location:</label>
+                              <span>Colombo city</span>
                             </div>
 
                             <div class="input-group">
-                              <label>Contact details</label>
-                              <input type="text" class="form-control" name='contact_detail' required>
+                              <label>Advice:</label>
+                              <span>Please use mosquito repellant when going to nearby places</span>
                             </div>
 
                             <div class="input-group">
-                              <label>Lat</label>
-                              <input id='lat' type="text" class="form-control" disabled="" name='lat'>
+                              <div class='btn btn-default'>Know more about Dengue?</div>
                             </div>
 
                             <div class="input-group">
-                              <label>Long</label>
-                              <input id='lng' type="text" class="form-control" disabled="" name='lng'>
+                              <div class='btn btn-default'>Need consultation with doctor?</div>
+                            </div>
+
+                            <div class="input-group">
+                              <div class='btn btn-default'>Join the dengue force?</div>
                             </div>
 
                           </div>
 
                           <div class='col-sm-6'>
-                            <h4>Locatiion</h4>
                             <div id="map"></div>
                           </div>
-                        </div>
-
-                        <div class='col-sm-12 btn-actions'>
-                          <Button class='btn btn-primary' id='btn-submit'>Submit</Button>
-                          <a href='/subcriptions.html' class='btn btn-default' id='btn-cancel'>Cancel</a>
                         </div>
 
                       </div>

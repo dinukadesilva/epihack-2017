@@ -11,3 +11,7 @@
 .btn-actions {
   margin: 20px;
 }
+
+.input-group label {
+  min-width: 100px;
+}
