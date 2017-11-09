@@ -31,5 +31,9 @@ app.get('/emergency_numbers', function(req, res) {
   res.render('pages/emergency_numbers');
 });
 
+app.get('/messages', function(req, res) {
+  res.render('pages/messages');
+});
+
 app.listen(8080);
 console.log('App is running in 8080');
