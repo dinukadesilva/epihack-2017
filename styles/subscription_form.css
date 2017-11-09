@@ -3,7 +3,7 @@
   height: 300px;
 }
 
-.input-group {
+#subscriptionForm .input-group {
   margin-bottom: 20px;
   width: 90%;
 }
