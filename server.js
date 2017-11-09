@@ -35,5 +35,9 @@ app.get('/games', function(req, res) {
   res.render('pages/games');
 });
 
+app.get('/messages', function(req, res) {
+  res.render('pages/messages');
+});
+
 app.listen(8080);
 console.log('App is running in 8080');
