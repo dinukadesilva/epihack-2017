@@ -6,13 +6,15 @@
     <title>Facebook Theme Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="styles/subscription.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href="assets/css/facebook.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
 
 <div class="wrapper">
     <div class="box">
@@ -46,31 +48,36 @@
                                 </div>
                             </div>
                         </form>
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="./index.html"><i class="glyphicon glyphicon-home"></i> Home</a>
-                            </li>
-                            <li>
-                                <a href="./subcriptions.html" role="button" data-toggle="modal"><i
-                                        class="glyphicon glyphicon-plus"></i> Subscription</a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="badge">badge</span></a>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                        class="glyphicon glyphicon-user"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">More</a></li>
-                                    <li><a href="">More</a></li>
-                                    <li><a href="">More</a></li>
-                                    <li><a href="">More</a></li>
-                                    <li><a href="">More</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                       <ul class="nav navbar-nav">
+                         <li>
+                           <a href="./index.html"><i class="glyphicon glyphicon-home"></i> Home</a>
+                         </li>
+                         <li>
+                           <a href="./subcriptions.html" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Subscription</a>
+                         </li>
+                         <li>
+                           <a href="./faq.html" role="button" data-toggle="modal"><i class="glyphicon glyphicon-info-sign"></i> Emergency Numbers</a>
+                         </li>
+
+                         <li>
+                           <a href="./faq.html" role="button" data-toggle="modal"><i class="glyphicon glyphicon-info-sign"></i> Faq</a>
+                         </li>
+
+                         <li>
+                         <a href="#"><span class="badge">badge</span></a>
+                         </li>
+                       </ul>
+
+                       <ul class="nav navbar-nav navbar-right">
+                         <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
+                           <ul class="dropdown-menu">
+                             <li><a href="">View Profile</a></li>
+                             <li><a href="/login.html">Logout</a></li>
+
+                           </ul>
+                         </li>
+                       </ul>
                     </nav>
                 </div>
                 <!-- /top nav -->
@@ -83,10 +90,15 @@
                             <div class="col-lg-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4>My Subscriptions</h4>
+                                        <h4>My Subscriptions {{firstName}}</h4>
                                     </div>
                                     <div class="panel-body">
                                         <div class="list-group">
+                                          <div class="list-group-item" ng-repeat='item in subscribes'>
+                                              <a href="#">{{item.name}}</a>
+                                              <a href="#" class="btn btn-xs btn-danger pull-right" ng-click='removeMe(item)'>remove</a>
+                                          </div>
+
                                             <div class="list-group-item">
                                                 <a href="#">Holy Family Convent</a>
                                                 <a href="#" class="btn btn-xs btn-danger pull-right">remove</a>
@@ -124,35 +136,13 @@
                                                         class="glyphicon glyphicon-search"></i></button>
                                             </div>
                                         </div>
+
                                         <div class="list-group">
-                                            <div class="list-group-item">
-                                                <a href="#">Royal College</a>
-                                                <a href="#" class="btn btn-xs btn-default pull-right">add</a>
-                                            </div>
-                                            <div class="list-group-item">
-                                                <a href="#">Cinnamon Lakeside</a>
-                                                <a href="#" class="btn btn-xs btn-default pull-right">add</a>
-                                            </div>
-                                            <div class="list-group-item">
-                                                <a href="#">Bambalapitiya</a>
-                                                <a href="#" class="btn btn-xs btn-default pull-right">add</a>
-                                            </div>
-                                            <div class="list-group-item">
-                                                <a href="#">Kollupitiya</a>
-                                                <a href="#" class="btn btn-xs btn-default pull-right">add</a>
-                                            </div>
-                                            <div class="list-group-item">
-                                                <a href="#">Kalutara</a>
-                                                <a href="#" class="btn btn-xs btn-default pull-right">add</a>
-                                            </div>
-                                            <div class="list-group-item">
-                                                <a href="#">Mathugama</a>
-                                                <a href="#" class="btn btn-xs btn-default pull-right">add</a>
-                                            </div>
-                                            <div class="list-group-item">
-                                                <a href="#">Kandy</a>
-                                                <a href="#" class="btn btn-xs btn-default pull-right">add</a>
-                                            </div>
+                                          <div class="list-group-item" ng-repeat="item in subscriptions">
+                                              <a href="#">{{item.name}}</a>
+                                              <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-default pull-right" ng-click='addMe(item)'>add</a>
+                                          </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -231,6 +221,43 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Notify me by</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <input type="checkbox">
+          <label name='email'>Email</label>
+        </div>
+
+        <div class="input-group">
+          <input type="checkbox">
+          <label name='sms'>SMS</label>
+        </div>
+
+        <div class="input-group">
+          <input type="checkbox">
+          <label name='app_notification'>App Notification</label>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default">Done</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 <script type="text/javascript">
@@ -245,5 +272,7 @@
     });
   });
 </script>
+
+<script type="text/javascript" src="javascripts/subscription.js"></script>
 </body>
 </html>
