@@ -14,6 +14,12 @@ app.controller('myCtrl', function($scope) {
     {name: 'Kalutara'},
   ];
 
+  $scope.notifications = [
+    {text: 'Dengue kill 10 people within 1 day', href: './message.html'},
+    {text: 'Dengue fever prevention', href: './message.html'},
+    {text: 'High Risk Area', href: './message.html'},
+  ];
+
   $scope.currentItem = null;
 
   $scope.addItem = function() {

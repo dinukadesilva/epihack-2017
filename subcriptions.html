@@ -61,19 +61,31 @@
                          <li>
                            <a href="./faq.html" role="button" data-toggle="modal"><i class="glyphicon glyphicon-info-sign"></i> Faq</a>
                          </li>
-
                        </ul>
 
-                       <ul class="nav navbar-nav navbar-right">
-                         <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
-                           <ul class="dropdown-menu">
-                             <li><a href="">View Profile</a></li>
-                             <li><a href="/login.html">Logout</a></li>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li id='notification'>
+                          <!-- <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover" data-placement="bottom">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                          </a> -->
 
-                           </ul>
-                         </li>
-                       </ul>
+                          <a class="btn dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-info-sign dropdown-toggle data-toggle="dropdown""></i>
+                          </a>
+
+                          <ul class="dropdown-menu">
+                            <li><a ng-href="{{item.href}}" ng-repeat="item in notifications">{{item.text}}</a></li>
+                          </ul>
+                        </li>
+
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="">View Profile</a></li>
+                            <li><a href="/login.html">Logout</a></li>
+                          </ul>
+                        </li>
+                      </ul>
                     </nav>
                 </div>
                 <!-- /top nav -->
@@ -86,15 +98,16 @@
                             <div class="col-lg-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4>My Subscriptions {{firstName}}</h4>
+                                      <h4>My Subscriptions {{firstName}}</h4>
                                     </div>
+
                                     <div class="panel-body">
-                                        <div class="list-group">
-                                          <div class="list-group-item" ng-repeat='item in subscribes'>
-                                              <a href="#">{{item.name}}</a>
-                                              <a href="#" class="btn btn-xs btn-danger pull-right" ng-click='removeMe(item)'>remove</a>
-                                          </div>
+                                      <div class="list-group">
+                                        <div class="list-group-item" ng-repeat='item in subscribes'>
+                                            <a href="#">{{item.name}}</a>
+                                            <a href="#" class="btn btn-xs btn-danger pull-right" ng-click='removeMe(item)'>remove</a>
                                         </div>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -220,6 +233,7 @@
       $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
       $('#btnShow').toggle();
     });
+    $('[data-toggle="popover"]').popover();
   });
 </script>
 
