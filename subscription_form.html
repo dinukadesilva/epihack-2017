@@ -70,61 +70,73 @@
             </div>
             <!-- /top nav -->
 
-            <div class="padding">
-              <div class="full col-sm-9">
-                <!-- content -->
-                <div class="row">
-                  <!-- main col right -->
-                  <div class="col-sm-12">
-                    <div class="panel panel-default">
+            <form id='form'>
+              <div class="padding">
+                <div class="full col-sm-9">
+                  <!-- content -->
+                  <div class="row">
+                    <!-- main col right -->
+                    <div class="col-sm-12">
+                      <div class="panel panel-default">
 
-                      <div class="panel-heading">
-                        <h4>Register Subscription Spot</h4>
-                      </div>
-
-                      <div class="panel-body">
-                        <div class='col-sm-6 navbar-form'>
-                          <div class="input-group">
-                            <label>Place name</label>
-                            <input type="text" class="form-control">
-                          </div>
-
-                          <div class="input-group">
-                            <label>Place type</label>
-                            <input type="text" class="form-control">
-                          </div>
-
-                          <div class="input-group">
-                            <label>Contact details</label>
-                            <input type="text" class="form-control">
-                          </div>
-
+                        <div class="panel-heading">
+                          <h4>Register Subscription Spot</h4>
                         </div>
 
-                        <div class='col-sm-6'>
-                          <div id="map"></div>
-                            <script>
-                              function initMap() {
-                                var map = new google.maps.Map(document.getElementById('map'), {
-                                  center: {lat: 6.9329258, lng: 79.8632811},
-                                  zoom: 13
-                                });
+                        <div class="panel-body">
+                          <div class='col-sm-6'>
+                            <div class="input-group">
+                              <label>Place name</label>
+                              <input type="text" class="form-control" name="place_name" required>
+                            </div>
 
-                                var marker = new google.maps.Marker({
-                                  position: {lat: 6.9329258, lng: 79.8632811},
-                                  map: map
-                                });
-                              }
+                            <div class="input-group">
+                              <label>Place type</label>
 
-                            </script>
+                              <div>
+                                <select name='place_type' required>
+                                  <option value="" disabled selected>Select</option>
+                                  <option value="school">School</option>
+                                  <option value="construction_site">Construction Site</option>
+                                  <option value="other">Other</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="input-group">
+                              <label>Contact details</label>
+                              <input type="text" class="form-control" name='contact_detail' required>
+                            </div>
+
+                            <div class="input-group">
+                              <label>Lat</label>
+                              <input id='lat' type="text" class="form-control" disabled="" name='lat'>
+                            </div>
+
+                            <div class="input-group">
+                              <label>Long</label>
+                              <input id='lng' type="text" class="form-control" disabled="" name='lng'>
+                            </div>
+
+                          </div>
+
+                          <div class='col-sm-6'>
+                            <h4>Locatiion</h4>
+                            <div id="map"></div>
+                          </div>
                         </div>
-                      </div>
 
-                    </div>
-                  </div><!--/row-->
-                </div>
-              </div><!-- /col-9 -->
-            </div><!-- /padding -->
+                        <div class='col-sm-12 btn-actions'>
+                          <Button class='btn btn-primary' id='btn-submit'>Submit</Button>
+                          <a href='/subcriptions.html' class='btn btn-default' id='btn-cancel'>Cancel</a>
+                        </div>
+
+                      </div>
+                    </div><!--/row-->
+                  </div>
+                </div><!-- /col-9 -->
+              </div><!-- /padding -->
+            </form>
           </div>
           <!-- /main -->
 
@@ -135,22 +147,31 @@
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('[data-toggle=offcanvas]').click(function() {
-          $(this).toggleClass('visible-xs text-center');
-          $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-          $('.row-offcanvas').toggleClass('active');
-          $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-          $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-          $('#btnShow').toggle();
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 6.9329258, lng: 79.8632811},
+          zoom: 13
         });
-      });
+
+        var marker = new google.maps.Marker({
+          position: {lat: 6.9329258, lng: 79.8632811},
+          map: map,
+          draggable: true
+        });
+
+        marker.addListener('dragend', setLatLong);
+      }
+
+      function setLatLong(cord) {
+        $('#lat').val(cord.latLng.lat());
+        $('#lng').val(cord.latLng.lng());
+      }
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw-XS7ZoHSku9gO7wduUYOP3u-Qew-uWM&callback=initMap"
     async defer></script>
 
-    <script src="./javascripts/subscription_form.js"></script>
+    <script src="javascripts/subscription_form.js"></script>
   </body>
 </html>

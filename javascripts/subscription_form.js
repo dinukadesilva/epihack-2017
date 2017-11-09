@@ -1,12 +1,26 @@
 $(document).ready(function() {
-  // initMap();
+  $('[data-toggle=offcanvas]').click(function() {
+    $(this).toggleClass('visible-xs text-center');
+    $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+    $('.row-offcanvas').toggleClass('active');
+    $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
+    $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
+    $('#btnShow').toggle();
+  });
 
-  // function initMap() {
-  //   // Create a map object and specify the DOM element for display.
-  //   var map = new google.maps.Map(document.getElementById('map'), {
-  //     center: {lat: -34.397, lng: 150.644},
-  //     zoom: 8
-  //   });
-  // }
+  onClickSubmit();
+  setDefaultLatLng();
 
+  function onClickSubmit() {
+
+    $( "#form" ).submit(function( event ) {
+      event.preventDefault();
+      window.location.href = '/subcriptions.html';
+    });
+  }
+
+  function setDefaultLatLng() {
+    $('#lat').val(6.9329258);
+    $('#lng').val(79.8632811);
+  }
 });
