@@ -52,7 +52,7 @@
                   <a href="./subcriptions.html" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Subscription</a>
                 </li>
                 <li>
-                  <a href="./emergency-numbers.html" role="button" data-toggle="modal"><i class="glyphicon glyphicon-info-sign"></i> Emergency Numbers</a>
+                  <a href="./faq.html" role="button" data-toggle="modal"><i class="glyphicon glyphicon-info-sign"></i> Emergency Numbers</a>
                 </li>
 
                 <li>
@@ -89,14 +89,57 @@
                       <div class="panel panel-default">
 
                         <div class="panel-heading">
-                          <h4>Frequently Asked Questions</h4>
+                          <h4>Emergency Numbers</h4>
                         </div>
 
                         <div class="panel-body">
-                          <div class="">
-                            <label>Name:</label>
+                          <div class="col-sm-4">
+                            <strong>CMC District 01</strong>
+                            <p>
+                              Dr. Sasanka Ranasinghe<br/>
+                              Phone : 071-8017387<br/>
+                              Office : 011-2336625
+                            </p>
                           </div>
-
+                          <div class="col-sm-4">
+                            <strong>DO 2A</strong>
+                            <p>
+                              Dr. J. D. S. Mendis<br/>
+                              Phone : 077-2928108<br/>
+                              Office : 011-2446342
+                            </p>
+                          </div>
+                          <div class="col-sm-4">
+                            <strong>DO 2B</strong>
+                            <p>
+                              Dr. Dammika Adikariwattage<br/>
+                              Phone : 071-8138283<br/>
+                              Office : 011-2689833
+                            </p>
+                          </div>
+                          <div class="col-sm-4">
+                            <strong>DO 3</strong>
+                            <p>
+                              Dr. Samadara Nettasinghe<br/>
+                              Phone : 071-8010134<br/>
+                              Office : 011-2691826
+                            </p>
+                          </div>
+                          <div class="col-sm-4">
+                            <strong>DO 4</strong>
+                            <p>
+                              Dr. Ishani Ariyachandra<br/>
+                              Phone : 071-3779922<br/>
+                              Office : 0112582037
+                            </p>
+                          </div>
+                          <div class="col-sm-4">
+                            <strong>DO 5</strong>
+                            <p>
+                              Dr. K. Sriprathapan<br/>
+                              Phone : 071-4217424<br/>
+                              Office : 0112588223
+                          </div>
 
                         </div>
 
@@ -115,32 +158,5 @@
 
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-
-    <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 6.9329258, lng: 79.8632811},
-          zoom: 13
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 6.9329258, lng: 79.8632811},
-          map: map,
-          draggable: true
-        });
-
-        marker.addListener('dragend', setLatLong);
-      }
-
-      function setLatLong(cord) {
-        $('#lat').val(cord.latLng.lat());
-        $('#lng').val(cord.latLng.lng());
-      }
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw-XS7ZoHSku9gO7wduUYOP3u-Qew-uWM&callback=initMap"
-    async defer></script>
-
-    <script src="javascripts/subscription_form.js"></script>
   </body>
 </html>
