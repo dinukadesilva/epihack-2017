@@ -31,6 +31,10 @@ app.get('/emergency_numbers', function(req, res) {
   res.render('pages/emergency_numbers');
 });
 
+app.get('/video_audio', function(req, res) {
+  res.render('pages/video_audio');
+});
+
 app.get('/games', function(req, res) {
   res.render('pages/games');
 });
