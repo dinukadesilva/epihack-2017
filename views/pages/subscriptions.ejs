@@ -3,7 +3,7 @@
 <head>
     <% include ../partials/head %>
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="myCtrl">
 
 
 
@@ -22,7 +22,7 @@
 
 
                         <!-- content -->
-                        <div class="row" ng-controller="myCtrl">
+                        <div class="row">
                             <div class="col-lg-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -93,17 +93,17 @@
       </div>
       <div class="modal-body">
         <div class="input-group">
-          <input type="checkbox">
+          <input type="checkbox" style='margin: 10px'>
           <label name='email'>Email</label>
         </div>
 
         <div class="input-group">
-          <input type="checkbox">
+          <input type="checkbox" style='margin: 10px'>
           <label name='sms'>SMS</label>
         </div>
 
         <div class="input-group">
-          <input type="checkbox">
+          <input type="checkbox" style='margin: 10px'>
           <label name='app_notification'>App Notification</label>
         </div>
 
