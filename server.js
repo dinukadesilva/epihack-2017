@@ -43,5 +43,9 @@ app.get('/messages', function(req, res) {
   res.render('pages/messages');
 });
 
+app.get('/about_us', function(req, res) {
+  res.render('pages/about_us');
+});
+
 app.listen(8080);
 console.log('App is running in 8080');
